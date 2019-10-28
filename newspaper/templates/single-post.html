@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-0-80" style="margin-top: 50px">
+        <div class="container">
+            {% if messages %}
+                <ul class="messages" style="margin-bottom: 20px">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}
+                                style="color: red; font-size: 20px; font-weight: bold">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+    {% endif %}
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+
+                        <!-- Single Featured Post -->
+                        <div class="single-blog-post featured-post single-post">
+                            <div class="post-thumb">
+                                <img src="{% get_media_prefix %}{{ news.image_set.first.image }}" alt="">
+                            </div>
+                            <div class="post-data">
+                                <a href="#" class="post-catagory">
+                                    {% for category in news.category.all %}
+                                        {% if category == news.category.last %}
+                                            {{ category }}
+                                        {% else %}
+                                            {{ category }},
+                                        {% endif %}
+                                    {% endfor %}
+                                </a>
+
+                                <a href="#" class="post-title">
+                                    <h6> {{ news.title }} </h6>
+                                </a>
+                                <div class="post-meta">
+                                    <p class="post-author">By <span style="font-weight: bold"> {{ news.author }}</span></p>
+                                    {{ news.text|safe }}
+                                    <div class="newspaper-post-like d-flex align-items-center justify-content-between">
+                                        <!-- Tags -->
+                                        <div class="newspaper-tags d-flex" style="color: dimgrey">
+                                            <span>Tags:</span>
+                                                {% for tag in news.tags.all %}
+                                                    {% if tag == news.tags.last %}
+                                                        {{ tag }}
+                                                    {% else %}
+                                                        {{ tag }},&nbsp
+                                                    {% endif %}
+                                                {% endfor %}
+                                        </div>
+
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center post-like--comments">
+                                            <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ news.rating }}</span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png " style="width: 17px; height: 17px" alt=""> <span> {{ news.views }} </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-heading">
+                            <h6>Related</h6>
+                        </div>
+
+                        <div class="row">
+                            <!-- Single Post -->
+                            {% for r_news in related_news %}
+                                <div class="col-12 col-md-6">
+                                    <div class="single-blog-post style-3 mb-80">
+                                        <div class="post-thumb" style="
+                                              position: relative;
+                                              width: 250px;
+                                              height: 250px;
+                                              overflow: hidden;
+                                              display: flex;
+                                              align-items: center">
+                                            <img src="{% get_media_prefix %}{{ r_news.image_set.first.image }}" alt="">
+                                        </div>
+                                        <div class="post-data">
+                                            <a href="#" class="post-catagory">
+                                                {% for category in r_news.category.all %}
+                                                    {% if category == r_news.category.last %}
+                                                        {{ category }}
+                                                    {% else %}
+                                                        {{ category }},&nbsp
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </a>
+                                            <a href="{% url "newspaper:single-post" r_news.slug %}" class="post-title">
+                                                <h6> {{ r_news.title }} </h6>
+                                            </a>
+                                            <div class="post-meta d-flex align-items-center">
+                                                <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ r_news.rating }}</span></a>
+                                                <a href="#" class="post-comment"><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                                <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png " style="width: 17px; height: 17px" alt=""> <span> {{ r_news.views }} </span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Comment Area Start -->
+                        <div class="comment_area clearfix">
+                            <h5 class="title"> {{ reviews.count }} Comment{{ reviews.count|pluralize }} </h5>
+
+                            <ol>
+                                {% for review in reviews %}
+                                    {% if not review.parent %}
+                                    <!-- Single Comment Area -->
+                                    <li class="single_comment_area">
+                                        <!-- Comment Content -->
+                                        <div class="comment-content d-flex">
+                                            <!-- Comment Author -->
+{#                                            <div class="comment-author">#}
+{#                                                <img src="../static/img/bg-img/30.jpg" alt="author">#}
+{#                                            </div>#}
+                                            <!-- Comment Meta -->
+                                            <div class="comment-meta">
+                                                <a href="#" class="post-author">{{ review.name }}</a>
+                                                <a href="#" class="post-date">{{ review.published }}</a>
+                                                <p> {{ review.text|safe }} </p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                        {% if review.review_set %}
+                                                {% for child_review in review.review_set.all %}
+                                                    <ol class="children">
+                                                        <li class="single_comment_area">
+                                                            <!-- Comment Content -->
+                                                            <div class="comment-content d-flex">
+                                                                <!-- Comment Author -->
+{#                                                                <div class="comment-author">#}
+{#                                                                    <img src="../static/img/bg-img/31.jpg" alt="author">#}
+{#                                                                </div>#}
+                                                                <!-- Comment Meta -->
+                                                                <div class="comment-meta">
+                                                                    <a href="#" class="post-author">{{ child_review.name }}</a>
+                                                                    <a href="#" class="post-date">{{ child_review.published }}</a>
+                                                                    <p> {{ child_review.text|safe}} </p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+                                                {% endfor %}
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+
+                        <div class="post-a-comment-area section-padding-80-0">
+                            <h4>Leave a comment</h4>
+                            
+                            <!-- Reply Form -->
+                            <div class="contact-form-area">
+                                <form action="{% url 'newspaper:single-post' news.slug %}" method="post"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name*">
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email*">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control" name="web_site" id="subject" placeholder="Website">
+                                        </div>
+                                        <div class="col-12">
+                                            <textarea class="form-control" name="text" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button class="btn newspaper-btn mt-30 w-100" type="submit" style="background-color: red; color: white">Submit Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    {% include 'latest_news.html' %}
+
+                    <!-- Popular News Widget -->
+                    <div style="margin-top: 75px">
+                        {% include 'popular_news.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Blog Area End ##### -->
+
+{% endblock content %}

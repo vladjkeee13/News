@@ -1,0 +1,6 @@
+a {
+    text-decoration: none !important;
+}
+a.color-item, a.post-like, a.post-comment  {
+    color: dimgrey !important;
+}

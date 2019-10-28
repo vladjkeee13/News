@@ -1,0 +1,82 @@
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/urls/resolvers.py", line 567, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'index/' [name='index']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'single-post/<slug:slug>' [name='single-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'categories_post/<slug:slug>' [name='categories-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'about/' [name='about']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'contact/' [name='contact']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'search/' [name='search']>], [<URLResolver <module 'django_summernote.urls' from '/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django_summernote/urls.py'> (None:None) 'summernote/'>], [<URLPattern '^static/(?P<path>.*)$'>], [<URLPattern '^media/(?P<path>.*)$'>]], 'path': ''}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'django_summernote.urls' from '/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django_summernote/urls.py'> (None:None) 'summernote/'>
+Not Found: /
+"GET / HTTP/1.1" 404 3356
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/storage/fallback.py first seen with mtime 1571494924.3640487
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/utils.py first seen with mtime 1571494924.3640487
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/sessions/serializers.py first seen with mtime 1571494924.4680521
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/storage/cookie.py first seen with mtime 1571494924.3640487
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/storage/session.py first seen with mtime 1571494924.3640487
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/storage/base.py first seen with mtime 1571494924.3640487
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/urls/resolvers.py", line 567, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'index/' [name='index']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'single-post/<slug:slug>' [name='single-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'categories_post/<slug:slug>' [name='categories-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'about/' [name='about']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'contact/' [name='contact']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'search/' [name='search']>], [<URLResolver <module 'django_summernote.urls' from '/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django_summernote/urls.py'> (None:None) 'summernote/'>], [<URLPattern '^static/(?P<path>.*)$'>], [<URLPattern '^media/(?P<path>.*)$'>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>

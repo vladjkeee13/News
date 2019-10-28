@@ -1,0 +1,14 @@
+<!-- Popular News Widget -->
+<div class="popular-news-widget mb-30">
+    <h3>4 Most Popular News</h3>
+
+    <!-- Single Popular Blog -->
+    {% for single_news in top_news %}
+        <div class="single-popular-post">
+            <a href="{% url 'newspaper:single-post' single_news.slug %}">
+                <h6><span>{{ forloop.counter }}</span> {{ single_news.title }}</h6>
+            </a>
+            <p>{{ single_news.published_at }}</p>
+        </div>
+    {% endfor %}
+</div>

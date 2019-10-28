@@ -1,0 +1,61 @@
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/admin/migrations/0001_initial.py first seen with mtime 1571494923.7160277
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django_summernote/migrations/__init__.py first seen with mtime 1514307159.0
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0005_alter_user_last_login_null.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/sessions/backends/base.py first seen with mtime 1571494924.4680521
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/PIL/_binary.py first seen with mtime 1571495229.077958
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/templatetags/l10n.py first seen with mtime 1571494924.6920593
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0003_alter_user_email_max_length.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0009_alter_user_last_name_max_length.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/admin/templatetags/admin_static.py first seen with mtime 1571494923.8200312
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/middleware/security.py first seen with mtime 1571494924.680059
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/admin/templatetags/admin_list.py first seen with mtime 1571494923.8200312
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/middleware/common.py first seen with mtime 1571494924.680059
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/messages/middleware.py first seen with mtime 1571494924.3640487
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0008_alter_user_username_max_length.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/admin/templatetags/admin_modify.py first seen with mtime 1571494923.8200312
+File /home/vladjkeee13/PycharmProjects/Sam/Sam/wsgi.py first seen with mtime 1570558393.611564
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/db/models/sql/compiler.py first seen with mtime 1571494924.656058
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0011_update_proxy_permissions.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/PIL/_version.py first seen with mtime 1571495229.045957
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/sessions/backends/db.py first seen with mtime 1571494924.4680521
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/contenttypes/migrations/0001_initial.py first seen with mtime 1571494924.128041
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/auth/migrations/0006_require_contenttypes_0002.py first seen with mtime 1571494924.0720391
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/admin/templatetags/base.py first seen with mtime 1571494923.8200312
+File /home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/contrib/sessions/migrations/__init__.py first seen with mtime 1571494924.5240538
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/core/handlers/base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/urls/resolvers.py", line 567, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'index/' [name='index']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'single-post/<slug:slug>' [name='single-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'categories_post/<slug:slug>' [name='categories-post']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'about/' [name='about']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'contact/' [name='contact']>], [<URLResolver <module 'newspaper.urls' from '/home/vladjkeee13/PycharmProjects/Sam/newspaper/urls.py'> (newspaper:newspaper) ''>, <URLPattern 'search/' [name='search']>], [<URLResolver <module 'django_summernote.urls' from '/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django_summernote/urls.py'> (None:None) 'summernote/'>], [<URLPattern '^static/(?P<path>.*)$'>], [<URLPattern '^media/(?P<path>.*)$'>]], 'path': ''}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladjkeee13/.virtualenvs/Sam/lib/python3.7/site-packages/django/template/base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>

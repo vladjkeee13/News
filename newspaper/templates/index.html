@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Featured Post Area Start ##### -->
+    <div class="featured-post-area" style="margin-top: 50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="row">
+
+                        <!-- Single Featured Post -->
+                        <div class="col-12 col-lg-7">
+                            <div class="single-blog-post featured-post">
+                                <div class="post-thumb">
+                                    <img src="{% get_media_prefix %}{{ news.0.image_set.first.image }}" alt="">
+                                </div>
+                                <div class="post-data">
+                                    <span href="#" class="post-catagory">
+                                        {% for category in news.0.category.all %}
+                                            {% if category == news.0.category.last %}
+                                                {{ category }}
+                                            {% else %}
+                                                {{ category }},
+                                            {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                    <a href="{% url "newspaper:single-post" news.0.slug %}" class="post-title">
+                                        <h6> {{ news.0.title }} </h6>
+                                    </a>
+                                    <div class="post-meta">
+                                        <p class="post-author">By <span style="font-weight: bold"> {{ news.0.author }} </span> </p>
+                                        <p class="post-excerp"> {{ news.0.text|safe|truncatewords:50 }} </p>
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center">
+                                            <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ news.0.rating }}</span></a>
+                                            <a href="#" class="post-comment "><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png " style="width: 17px; height: 17px" alt=""> <span> {{ news.0.views }} </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-5">
+                            <!-- Single Featured Post -->
+                            <div class="single-blog-post featured-post-2">
+                                <div class="post-thumb">
+                                    <img src="{% get_media_prefix %}{{ news.1.image_set.first.image }}" alt="">
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">
+                                        {% for category in news.1.category.all %}
+                                            {% if category == news.1.category.last %}
+                                                {{ category }}
+                                            {% else %}
+                                                {{ category }},
+                                            {% endif %}
+                                        {% endfor %}
+                                    </a>
+                                    <div class="post-meta">
+                                        <a href="{% url 'newspaper:single-post' news.1.slug %}" class="post-title">
+                                            <h6> {{ news.1.title }} </h6>
+                                        </a>
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center">
+                                            <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ news.1.rating }}</span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png" style="width: 17px; height: 17px" alt=""> <span> {{ news.1.views }} </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Featured Post -->
+                            <div class="single-blog-post featured-post-2">
+                                <div class="post-thumb">
+                                    <a href="#"><img src="{% get_media_prefix %}{{ news.2.image_set.first.image }}" alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="#" class="post-catagory">
+                                        {% for category in news.2.category.all %}
+                                            {% if category == news.2.category.last %}
+                                                {{ category }}
+                                            {% else %}
+                                                {{ category }},
+                                            {% endif %}
+                                        {% endfor %}
+                                    </a>
+                                    <div class="post-meta">
+                                        <a href="{% url 'newspaper:single-post' news.2.slug %}" class="post-title">
+                                            <h6> {{ news.2.title }} </h6>
+                                        </a>
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center">
+                                             <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ news.2.rating }}</span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png" style="width: 17px; height: 17px" alt=""> <span> {{ news.2.views }} </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Latest news -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    {% include 'latest_news.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Featured Post Area End ##### -->
+
+    <!-- ##### Popular News Area Start ##### -->
+    <div class="popular-news-area section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="section-heading">
+                        <h6>Popular News</h6>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Single Post -->
+                        {% for news in top_news %}
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-post style-3">
+                                    <div class="post-thumb" style="
+                                              position: relative;
+                                              width: 330px;
+                                              height: 330px;
+                                              overflow: hidden;
+                                              display: flex;
+                                              align-items: center;
+                                              text-align:center">
+                                        <img src="{% get_media_prefix %}{{ news.image_set.first.image }}" alt="">
+                                    </div>
+                                    <div class="post-data">
+                                        <span class="post-catagory">
+                                            {% for category in news.category.all %}
+                                                {% if category == news.category.last %}
+                                                    {{ category }}
+                                                {% else %}
+                                                    {{ category }},
+                                                {% endif %}
+                                            {% endfor %}
+                                        </span>
+                                        <a href="{% url "newspaper:single-post" news.slug %}" class="post-title">
+                                            <h6> {{ news.title }} </h6>
+                                        </a>
+                                        <div class="post-meta d-flex align-items-center">
+                                            <a href="#" class="post-like"><img src="../../static/img/core-img/like.png" alt=""> <span>{{ news.rating }}</span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/chat.png" alt=""> <span> 0 </span></a>
+                                            <a href="#" class="post-comment"><img src="../../static/img/core-img/views.png" style="width: 17px; height: 17px" alt=""> <span> {{ news.views }} </span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="section-heading">
+                        <h6>Info</h6>
+                    </div>
+                    {% include 'popular_news.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Popular News Area End ##### -->
+
+
+    <!-- ##### Editorial Post Area Start ##### -->
+    <div class="editors-pick-post-area section-padding-80-50">
+        <div class="container">
+            <div class="row">
+                <!-- Editors Pick -->
+                <div class="col-12">
+
+                    <div class="row">
+                        <!-- Single Post -->
+                        {% for single_news in news|slice:"10:22" %}
+                            <div class="col-12 col-lg-3">
+                                <div class="single-blog-post">
+                                    <div class="post-thumb"
+                                         style="
+                                              position: relative;
+                                              width: 250px;
+                                              height: 250px;
+                                              overflow: hidden;
+                                              display: flex;
+                                              align-items: center">
+                                        <img src="{% get_media_prefix %}{{ single_news.image_set.first.image }}" alt="">
+                                    </div>
+                                    <div class="post-data">
+                                        <a href="{% url 'newspaper:single-post' single_news.slug %}" class="post-title">
+                                            <h6> {{ single_news.title }} </h6>
+                                        </a>
+                                        <div class="post-meta">
+                                            <div class="post-date">
+                                                <span> {{ single_news.published_at }} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Editorial Post Area End ##### -->
+
+{% endblock content %}
